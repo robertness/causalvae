@@ -21,4 +21,17 @@ The purpose of this dataset was to evaluate the ability of disentanglement metho
 
 However, in this project, these factors are not treated as latent, but are included as labels in the model training.  Further, a causal story is invented that relates these factors and the images in a DAG
 
+![vae_dag](figs/vae_dag.png) 
 
+
+$shape =  f_{shape}(N_{shape})$
+
+$orientation = f_{orientation}({shape, N_{orientation}})$
+
+$scale = f_{scale}(shape, N_{{scale}})$
+
+$X = f_{{X}}({orientation}, N_{{X}})$
+
+${Y} = f_{{Y}}({scale}, N_{{Y}})$
+
+${image} = g({orientation}, {scale}, {X}, {Y},{image}, N_{{image}})$
