@@ -11,7 +11,7 @@ Factors and their values:
 
 * Shape: 3 values {square, ellipse, heart}
 * Scale: 6 values linearly spaced in (0.5, 1)
-* Orientation: 40 values in (0, 2$\pi$)
+* Orientation: 40 values in (0, 2pi)
 * Position X: 32 values in (0, 1)
 * Position Y: 32 values in (0, 1)
 
@@ -23,14 +23,19 @@ However, in this project, these factors are not treated as latent, but are inclu
 
 ![vae_dag](dag.png) 
 
-- <img src="https://latex.codecogs.com/gif.latex? shape =  f_{shape}(N_{shape}) t " />
+Structural causal model is of the form:
 
-$orientation = f_{orientation}({shape, N_{orientation}})$
+![scm_eq](scm.png) 
 
-$scale = f_{scale}(shape, N_{{scale}})$
+The image variable will be a 64 x 64 array.  The noise term for the image variable will be the traditional Gaussian random variable. The structural assignment *g* for the image variable will be the decoder.
 
-$X = f_{{X}}({orientation}, N_{{X}})$
 
-${Y} = f_{{Y}}({scale}, N_{{Y}})$
+## Work:
+* Built a Structural causal model that articulates a causal story relating shape, orientation, scale, X, Y, and the data.
+* Resampled the dataset to get a new dataset with an empirical distribution that is faithful to the DAG and is entailed by the SCM
+* To implement a causal VAE using [Pyro](http://pyro.ai/) by extending the primitive version of VAE. The VAE is fully supervised.
+* Finally used the trained model to answer some counterfactual queries, for example, "given this image of a heart with this orientation, position, and scale, what would it have looked like if it were a square?"
 
-${image} = g({orientation}, {scale}, {X}, {Y},{image}, N_{{image}})$
+## Applications
+* DeepFakes :[Structured Disentangled Representations](https://arxiv.org/pdf/1804.02086.pdf) 
+![dp](deep-fakes.jpg)
