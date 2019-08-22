@@ -23,7 +23,7 @@ However, in this project, these factors are not treated as latent, but are inclu
 
 ![vae_dag](dag.png) 
 
-$$shape =  f_{shape}(N_{shape})$$
+- <img src="https://latex.codecogs.com/gif.latex? shape =  f_{shape}(N_{shape}) t " />
 
 $orientation = f_{orientation}({shape, N_{orientation}})$
 
