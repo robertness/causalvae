@@ -42,7 +42,7 @@ The image variable will be a 64 x 64 array.  The noise term for the image variab
 
 ## Results
 * Achieved good reconstruction accuracy using vanilla VAE - 
-![vanilla_vae](figs/vae recons.png)
+![vanilla_vae](figs/vae-recons.png)
 
 * Trained VAE and made sure it recognises changes in the latent dimensions(Manually changed latent variables before training) - 
 ![vae_latent_manual](figs/manual-intervention.png)
